@@ -5,8 +5,8 @@ package com.taobao.stock.column;
  */
 public enum BroadcastColumnEnum{
 
-    UNICODE("款式编号"),
-    NAME("款式名称"),
+    UNICODE("款号"),
+    NAME("款名"),
     COLOR("颜色"),
     ORG_PRICE("吊牌价"),
 
