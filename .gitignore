@@ -3,4 +3,14 @@
 .idea/
 out/
 
+# Java class files
+*.class
 
+# IntelliJ project files
+*.iml
+.idea/
+
+
+# Generated files
+res/
+res_out/
