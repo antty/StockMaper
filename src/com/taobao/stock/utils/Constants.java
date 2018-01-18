@@ -15,4 +15,6 @@ public interface Constants {
 
     public String PRE_TEMP = "temp";
 
+    public String TEMPLATE_SHEET_NAME = "商品导入";
+
 }

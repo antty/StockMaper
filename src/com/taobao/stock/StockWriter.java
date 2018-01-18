@@ -32,7 +32,7 @@ public class StockWriter {
 
         FileInputStream in = new FileInputStream(finalXlsxFile); // 文件流
         Workbook workBook =   FileProvider.getInstance().getWorkbook(finalXlsxFile, in);
-        Sheet sheet = workBook.getSheet("商品导入");
+        Sheet sheet = workBook.getSheet(Constants.TEMPLATE_SHEET_NAME);
 
         if(sheet == null){
             SLog.w("has no template sheet ");
@@ -77,7 +77,6 @@ public class StockWriter {
                 }
             }
         }
-
 
         OutputStream outputStream = new FileOutputStream( FileProvider.getInstance().getOutFilePath(fileName));
         workBook.write(outputStream);
