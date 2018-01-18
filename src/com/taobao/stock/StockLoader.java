@@ -84,6 +84,7 @@ public class StockLoader {
             }
 
 
+
             SLog.i("===" + file.getName() + "====商品总数: " + detailModelList.size());
             SLog.i("===" + file.getName() + "====库存总数: " + quantity);
 
@@ -98,8 +99,8 @@ public class StockLoader {
                 startIndex = Constants.MAX_SHEET_DETAIL_SIZE*j;
                 endIndex = (j + 1)*Constants.MAX_SHEET_DETAIL_SIZE;
 
-                if(endIndex > detailModelList.size() - 1){
-                    endIndex = detailModelList.size() - 1;
+                if(endIndex > detailModelList.size()){
+                    endIndex = detailModelList.size();
                 }
 
                 spFileName = sheet.getSheetName()+ "_" + j + "_" + file.getName();
@@ -114,7 +115,6 @@ public class StockLoader {
 
         in.close();
     }
-
 
     private List<BroadcastViewModel> parseSheet(Sheet sheet){
 
