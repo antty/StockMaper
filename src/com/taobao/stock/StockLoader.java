@@ -94,6 +94,7 @@ public class StockLoader {
             int startIndex = 0;
             int endIndex = 0;
             String spFileName = "";
+            List<BroadcastDetailModel> subList;
             for (int j = 0; j < size ; j++) {   //分表拆分写入,按照最大的长度限制
 
                 startIndex = Constants.MAX_SHEET_DETAIL_SIZE*j;
@@ -104,8 +105,10 @@ public class StockLoader {
                 }
 
                 spFileName = sheet.getSheetName()+ "_" + j + "_" + file.getName();
-                writer.write(detailModelList.subList(startIndex, endIndex), spFileName);
-                SLog.i("===" + spFileName + "====size: " + (endIndex - startIndex + 1));
+
+                subList = detailModelList.subList(startIndex, endIndex);
+                writer.write(subList, spFileName);
+                SLog.i("===" + spFileName + "====size: " + subList.size());
             }
 
         }
