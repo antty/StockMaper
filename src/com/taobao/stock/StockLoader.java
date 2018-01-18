@@ -32,22 +32,18 @@ public class StockLoader {
         initEnv();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws  Exception{
 
         List<File> orgFiles = loader.provider.getParseFiles();
 
-        try {
-            SLog.i("===================start==========================" );
+        SLog.i("===================start==========================");
 
-            for (int i = 0; i < orgFiles.size(); i++) {
-                loader.parseFile(orgFiles.get(i));
-            }
-
-            SLog.i("===================end==========================" );
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 0; i < orgFiles.size(); i++) {
+            loader.parseFile(orgFiles.get(i));
         }
+
+        SLog.i("===================end==========================");
+
     }
 
 
@@ -83,8 +79,6 @@ public class StockLoader {
                 quantity += vm.quantity;
             }
 
-
-
             SLog.i("===" + file.getName() + "====商品总数: " + detailModelList.size());
             SLog.i("===" + file.getName() + "====库存总数: " + quantity);
 
@@ -108,7 +102,13 @@ public class StockLoader {
 
                 subList = detailModelList.subList(startIndex, endIndex);
                 writer.write(subList, spFileName);
-                SLog.i("===" + spFileName + "====size: " + subList.size());
+
+                int  subQuantity = 0;
+                for(BroadcastDetailModel vm: subList){
+                    subQuantity += vm.quantity;
+                }
+
+                SLog.i("===" + spFileName + "====size: " + subList.size() + "====quantity:" + subQuantity);
             }
 
         }
