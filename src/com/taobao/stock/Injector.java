@@ -37,6 +37,8 @@ public class Injector {
             try {
                 if(value instanceof Integer){
                     model.addFootageSku(columnEnum.getName(), (Integer) value);
+                }else{
+                    model.addFootageSku(columnEnum.getName(), 0);
                 }
 
             } catch (Exception e) {
