@@ -38,7 +38,7 @@ public enum BroadcastColumnEnum{
 
         BroadcastColumnEnum[] heads = BroadcastColumnEnum.values();
         for (int i = 0; i < heads.length; i++) {
-            if(heads[i].getName().equalsIgnoreCase(name)){
+            if(heads[i].getName().equalsIgnoreCase(name.trim())){
                 head = heads[i];
                 break;
             }
